@@ -1,4 +1,3 @@
-'''bash
 .
 ├── FOLDER_STRUCTURE.md
 ├── README.md
@@ -155,5 +154,5 @@
 │       ├── Shield_virtual_machines_using_Bastion.pdf
 │       └── securing_vm.pdf
 └── resume.pdf
-'''
+
 35 directories, 121 files
