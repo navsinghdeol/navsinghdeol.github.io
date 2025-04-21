@@ -1,1 +1,1 @@
-# navdinghdeol.github.io
+# navsinghdeol.github.io
