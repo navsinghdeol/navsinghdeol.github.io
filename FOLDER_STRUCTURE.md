@@ -1,3 +1,6 @@
+# Folder Structure
+
+```bash
 .
 ├── FOLDER_STRUCTURE.md
 ├── README.md
