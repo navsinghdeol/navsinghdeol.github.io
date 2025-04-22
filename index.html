@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +42,11 @@
 
 <div class="container">
     <section id="about">
-  <h2>About Me</h2>
-  <p>I’m a Security+ certified cybersecurity analyst with a growing portfolio of technical skills and hands-on experience. My professional background combines customer-facing roles and technical environments, allowing me to approach security with both an analytical mindset and a people-first perspective.</p>
-  <p>Through certifications from CompTIA, Google, and Microsoft, I’ve developed a strong foundation in threat detection, incident response, and risk management. I’m passionate about protecting systems and data, and I’m eager to bring that passion to an entry-level cybersecurity role where I can continue learning and contribute to a mission-driven team.</p>
-  <p>My goal is to become a cybersecurity professional who not only solves problems but also helps build a proactive and resilient security culture in any organization I join.</p>
-</section>
+        <h2>About Me</h2>
+        <p>I’m a Security+ certified cybersecurity analyst with a growing portfolio of technical skills and hands-on experience. My professional background combines customer-facing roles and technical environments, allowing me to approach security with both an analytical mindset and a people-first perspective.</p>
+        <p>Through certifications from CompTIA, Google, and Microsoft, I’ve developed a strong foundation in threat detection, incident response, and risk management. I’m passionate about protecting systems and data, and I’m eager to bring that passion to an entry-level cybersecurity role where I can continue learning and contribute to a mission-driven team.</p>
+        <p>My goal is to become a cybersecurity professional who not only solves problems but also helps build a proactive and resilient security culture in any organization I join.</p>
+    </section>
 
     <section id="certifications">
         <h2>Certifications</h2>
@@ -81,18 +80,22 @@
         </ul>
     </section>
 
-    <section id="labs">
-      <h2>Google Cybersecurity Labs</h2>
-      <p>Hands-on labs and exercises completed as part of the Google Cybersecurity Professional Certificate. Includes work with Linux commands, log analysis, threat identification, and more.</p>
-      <a href="https://github.com/navsinghdeol/navsinghdeol.github.io/tree/main/google_cybersecurity_exercises" target="_blank">View Labs</a>
+    <section id="google-labs">
+        <h2>Google Cybersecurity Labs</h2>
+        <p>Hands-on labs and exercises completed as part of the Google Cybersecurity Professional Certificate. Includes work with Linux commands, log analysis, threat identification, and more.</p>
+        <ul id="google-labs-list">
+            <!-- Google Labs PDFs will be dynamically added here -->
+        </ul>
     </section>
 
-    <section id="labs">
-      <h2>Microsoft Cybersecurity Specialization Labs</h2>
-      <p>Hands-on labs and exercises completed as part of the Microsoft Cybersecurity Specialization Certificate. Includes work with Microsoft Azure AD.</p>
-      <a href="https://github.com/navsinghdeol/navsinghdeol.github.io/tree/main/microsoft_cybersecurity_specialization" target="_blank">View Labs</a>
+    <section id="microsoft-labs">
+        <h2>Microsoft Cybersecurity Specialization Labs</h2>
+        <p>Hands-on labs and exercises completed as part of the Microsoft Cybersecurity Specialization Certificate. Includes work with Microsoft Azure AD.</p>
+        <ul id="microsoft-labs-list">
+            <!-- Microsoft Labs PDFs will be dynamically added here -->
+        </ul>
     </section>
-    
+
     <section id="resume">
         <h2>Resume</h2>
         <p><a href="resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
@@ -101,7 +104,7 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>Email: navsinghdeol00007@gmail.com</p>
-        <p>LinkedIn: <a href="http://linkedin.com/in/navveer-singh-a690a32a3" target="_blank"> My LinkedIn</a></p>
+        <p>LinkedIn: <a href="http://linkedin.com/in/navveer-singh-a690a32a3" target="_blank">My LinkedIn</a></p>
         <p>GitHub: <a href="https://github.com/navsinghdeol/navsinghdeol.github.io" target="_blank">github.com/navsinghdeol</a></p>
     </section>
 </div>
@@ -109,6 +112,44 @@
 <footer>
     <p>© 2025 Navveer Singh. All rights reserved.</p>
 </footer>
+
+<script>
+    // Function to fetch and display files for Google Cybersecurity Labs
+    fetch('https://api.github.com/repos/navsinghdeol/navsinghdeol.github.io/contents/google_cybersecurity_exercises')
+    .then(response => response.json())
+    .then(data => {
+        const list = document.getElementById('google-labs-list');
+        data.forEach(item => {
+            if (item.type === 'file' && item.name.endsWith('.pdf')) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = item.download_url;
+                link.target = '_blank';
+                link.textContent = item.name;
+                listItem.appendChild(link);
+                list.appendChild(listItem);
+            }
+        });
+    });
+
+    // Function to fetch and display files for Microsoft Cybersecurity Labs
+    fetch('https://api.github.com/repos/navsinghdeol/navsinghdeol.github.io/contents/microsoft_cybersecurity_specialization')
+    .then(response => response.json())
+    .then(data => {
+        const list = document.getElementById('microsoft-labs-list');
+        data.forEach(item => {
+            if (item.type === 'file' && item.name.endsWith('.pdf')) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = item.download_url;
+                link.target = '_blank';
+                link.textContent = item.name;
+                listItem.appendChild(link);
+                list.appendChild(listItem);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
